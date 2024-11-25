@@ -122,3 +122,39 @@ void BibParser::print_author_publications(string authorname)
     pb->print_publication();
   }
 }
+
+
+void BibParser::store_publication()
+{
+  ifstream bibfile(bibfilepath);
+
+  string eachline;
+  while (getline(bibfile, eachline))
+  {
+    if (eachline[0] == '}' || eachline[0] == '{')
+      cout << "Invalid BibFile !! Unbalanced Paranthesis";
+
+    if (eachline[0] == '@')
+    {
+      store_publication_helper(eachline, bibfile);
+    }
+  }
+}
+
+map<string, vector<Publication *>> &BibParser::get_mapping()
+{
+  return mapping;
+}
+
+vector<Publication*>& BibParser::get_publications()
+{
+    return pubs;
+}
+
+void BibParser::print_Publications()
+{
+  for(auto pb:pubs)
+  {
+    pb->print_publication();
+  }
+}
