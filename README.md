@@ -44,3 +44,6 @@ This will generate the executables:
 
 ### Note
 Ensure the `.bib` file and `faculty.csv` are in the same directory as the program. Invalid `.bib` files will trigger assertions.
+
+# References
+from google and some AI tools
