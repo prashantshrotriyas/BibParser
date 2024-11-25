@@ -1,0 +1,11 @@
+test:
+	# Compile source files into object files
+	g++ -c question2.cpp -o question2.o
+	g++ -c bibparser.cpp -o bibparser.o
+	g++ -c publication.cpp -o publication.o
+
+	# Create debug binary
+	g++ -g question2.o bibparser.o publication.o -o question2_debug
+
+	# Create optimized binary
+	g++ -O3 question2.o bibparser.o publication.o -o question2_optimized
